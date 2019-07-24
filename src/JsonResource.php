@@ -26,6 +26,11 @@ class JsonResource implements ArrayAccess, JsonSerializable
         $this->resource = $resource;
     }
 
+    public static function make(...$params)
+    {
+        return new static(...$params);
+    }
+
     public function toArray()
     {
         return $this->resource->toArray();
