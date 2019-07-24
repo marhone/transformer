@@ -1,0 +1,27 @@
+{
+    "name": "marhone/transformer",
+    "description": "eloquent model to json resource",
+    "type": "library",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "marhone",
+            "email": "no7nic3@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "marhone\\Transformer\\": "packages/marhone/transformer/src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "marhone\\Transformer\\Provider\\TransformerServiceProvider"
+            ]
+        }
+    }
+}
