@@ -12,7 +12,7 @@ class JsonCollection extends JsonResource implements IteratorAggregate
     use CollectsResources;
 
     /**
-     * @var @var \Illuminate\Support\Collection
+     * @var \Illuminate\Support\Collection
      */
     public $collection;
 
