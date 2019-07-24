@@ -16,12 +16,5 @@
         "psr-4": {
             "marhone\\Transformer\\": "packages/marhone/transformer/src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "marhone\\Transformer\\Provider\\TransformerServiceProvider"
-            ]
-        }
     }
 }
