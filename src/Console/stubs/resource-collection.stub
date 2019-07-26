@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+use marhone\Transformer\JsonCollection;
+
+class DummyClass extends JsonCollection
+{
+    /**
+     * Transform the resource collection into an array.
+     *
+     * @return array?
+     */
+    public function toArray()
+    {
+        return parent::toArray();
+    }
+}

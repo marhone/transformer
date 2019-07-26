@@ -17,7 +17,6 @@ class JsonResource implements ArrayAccess, JsonSerializable
 
     /**
      * @var mixed
-     *
      */
     protected $resource;
 
@@ -54,6 +53,7 @@ class JsonResource implements ArrayAccess, JsonSerializable
                 'list' => $this->resource->all()
             ];
         }
+
         return [
             'entity' => $this->toArray()
         ];
