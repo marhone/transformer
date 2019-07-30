@@ -14,7 +14,7 @@ class TransformerMakeCommand extends ResourceMakeCommand
      *
      * @var string
      */
-    protected $name = 'make:transformer';
+    protected $name = 'make:trans';
 
     /**
      * The console command description.
