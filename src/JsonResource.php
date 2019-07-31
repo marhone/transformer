@@ -43,19 +43,19 @@ class JsonResource implements ArrayAccess, JsonSerializable
                  'page_size' => $this->resource->perPage(),
                  'total_page' => $this->resource->lastPage(),
                  'total_record' => $this->resource->total(),
-                 'list' => $this->toArray(),
+                 'list' => $this->filter($this->toArray()),
              ];
         }
 
         if ($this->resource instanceof Collection) {
             return [
                 'total_record' => $this->resource->count(),
-                'list' => $this->toArray()
+                'list' => $this->filter($this->toArray())
             ];
         }
 
         return [
-            'entity' => $this->toArray()
+            'entity' => $this->filter($this->toArray())
         ];
     }
 }
