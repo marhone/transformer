@@ -50,7 +50,7 @@ class JsonResource implements ArrayAccess, JsonSerializable
         if ($this->resource instanceof Collection) {
             return [
                 'total_record' => $this->resource->count(),
-                'list' => $this->resource->all()
+                'list' => $this->toArray()
             ];
         }
 
