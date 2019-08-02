@@ -20,9 +20,17 @@ class JsonResource implements ArrayAccess, JsonSerializable
      */
     protected $resource;
 
+    protected $wrapperNeed = true;
+
     public function __construct($resource)
     {
-        $this->resource = $resource;
+        $this->resource = $this->collectResource($resource);
+    }
+
+    public function withoutWrapper()
+    {
+        $this->wrapperNeed = false;
+        return $this;
     }
 
     public static function make(...$params)
@@ -37,25 +45,29 @@ class JsonResource implements ArrayAccess, JsonSerializable
 
     public function jsonSerialize()
     {
+        $filtered = $this->filter($this->toArray());
+        if (!$this->wrapperNeed) {
+            return $filtered;
+        }
         if($this->resource instanceof LengthAwarePaginator) {
              return [
                  'page' => $this->resource->currentPage(),
                  'page_size' => $this->resource->perPage(),
                  'total_page' => $this->resource->lastPage(),
                  'total_record' => $this->resource->total(),
-                 'list' => $this->filter($this->toArray()),
+                 'list' => $filtered,
              ];
         }
 
         if ($this->resource instanceof Collection) {
             return [
                 'total_record' => $this->resource->count(),
-                'list' => $this->filter($this->toArray())
+                'list' => $filtered
             ];
         }
 
         return [
-            'entity' => $this->filter($this->toArray())
+            'entity' => $filtered
         ];
     }
 }
